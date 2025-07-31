@@ -1,9 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from controllers.sms_controller import router as sms_webhook_controller
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = FastAPI()
 
