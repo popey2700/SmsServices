@@ -14,10 +14,10 @@ async def sms_webhook_controller(
     ):
     try:
         if await is_valid_request(request, x_twilio_signature):
-            texts = generate_text_response(Body)
+            message = generate_text_response(Body)
+            logger.info(f"attempting to send: ${message}")
             twilio_response = MessagingResponse()
-            for text in texts:
-                twilio_response.message(text)
+            twilio_response.message(message)
             return Response(content=str(twilio_response), media_type="application/xml")
         else:
             raise HTTPException(status_code=403, detail="Invalid Twilio signature")    
