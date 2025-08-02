@@ -1,6 +1,6 @@
 import logging
 
-from fastapi import APIRouter, Form
+from fastapi import APIRouter, Form, Response
 from services.prompt_service import generate_ai_response
 from twilio.twiml.messaging_response import MessagingResponse
 
@@ -17,7 +17,7 @@ async def sms_webhook_controller(Body: str = Form(...)):
         logger.info(f"GPT Reply: {ai_response}")
         twilio_response = MessagingResponse()
         twilio_response.message(ai_response)
-        return str(twilio_response)
+        return Response(content=str(twilio_response), media_type="application/xml")    
     except Exception as e:
         logger.error(f"Error: {e}")
         return {"error": str(e)}, 500

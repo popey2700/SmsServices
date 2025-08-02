@@ -25,3 +25,4 @@
 ## Running the app locally
 
 1. Run the app: `fastapi dev app/main.py`
+2. To test locally use a ephemeral port like NGROK and set the Twilio webhook to point to the url
