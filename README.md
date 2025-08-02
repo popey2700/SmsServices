@@ -26,3 +26,7 @@
 
 1. Run the app: `fastapi dev app/main.py`
 2. To test locally use a ephemeral port like NGROK and set the Twilio webhook to point to the url: `ngrok http http://localhost:8000`
+
+## Deployment
+
+- This App is deployed on a free render server, redeployments occur on pushes to main.
