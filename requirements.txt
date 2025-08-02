@@ -3,3 +3,4 @@ fastapi[standard]==0.115.12
 uvicorn==0.34.0
 openai==1.98.0
 twilio==9.7.0
+gunicorn==23.0.0
